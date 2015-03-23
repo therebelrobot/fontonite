@@ -163,7 +163,7 @@
             If there is a feature you would like to see in Fontonite, feel free
             to open a Github Issue, or, better yet, open a pull request!
           </p>
-          <a href="#convert" class="btn btn-lg btn-outline">
+          <a href="#convert" class="btn btn-lg btn-outline page-scroll">
             <i class="fa fa-exchange"></i> Convert your font!
           </a>
         </div>
@@ -209,26 +209,24 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-          <form name="sentMessage" id="contactForm" novalidate class="text-center">
-            <div class="row control-group">
-              <div class="form-group col-xs-12 floating-label-form-group controls">
-                <span class="btn btn-success fileinput-button">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <span class="btn btn-success fileinput-button">
                   <i class="glyphicon glyphicon-plus"></i>
                   <span>Choose Font...</span>
-                <!-- The file input field used as target for the file upload widget -->
-                <input id="fileupload" type="file" name="files[]" multiple>
-                </span>
-                <br>
-                <br>
-                <!-- The global progress bar -->
-                <div id="progress" class="progress">
-                  <div class="progress-bar progress-bar-success"></div>
-                </div>
-                <div id="files" class="files"></div>
+              <!-- The file input field used as target for the file upload widget -->
+              <input id="fileupload" type="file" name="files[]" multiple>
+              </span>
+              <br>
+              <br>
+              <!-- The global progress bar -->
+              <div id="progress" class="progress">
+                <div class="progress-bar progress-bar-success"></div>
               </div>
+              <div id="files" class="files"></div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -367,7 +365,8 @@
           dataType: 'json',
           autoUpload: false,
           acceptFileTypes: /(\.|\/)(ttf|otf)$/i,
-          maxFileSize: 10000000 // 10 MB
+          maxFileSize: 10000000, // 10 MB
+          paramName: 'font'
         }).on('fileuploadadd', function(e, data)
         {
           data.context = $('<div/>').appendTo('#files');
@@ -415,25 +414,23 @@
           );
         }).on('fileuploaddone', function(e, data)
         {
-          $.each(data.result.files, function(index, file)
+          console.log(data)
+          if (data.result.data.url)
           {
-            if (file.url)
-            {
-              var link = $('<a>')
-                .attr('target', '_blank')
-                .prop('href', file.url);
-              $(data.context.children()[index])
-                .wrap(link);
-            }
-            else if (file.error)
-            {
-              var error = $('<span class="text-danger"/>').text(
-                file.error);
-              $(data.context.children()[index])
-                .append('<br>')
-                .append(error);
-            }
-          });
+            var link = $('<a>')
+              .attr('target', '_blank')
+              .prop('href', data.result.data.url);
+            $(data.context.children()[0])
+              .wrap(link).text('Download Archive');
+          }
+          else if (data.result.error)
+          {
+            var error = $('<span class="text-danger"/>').text(
+              data.result.error);
+            $(data.context.children()[0])
+              .append('<br>')
+              .append(error);
+          }
         }).on('fileuploadfail', function(e, data)
         {
           $.each(data.files, function(index)
