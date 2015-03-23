@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An open API to convert a font to the corresponding web fonts.">
+  <meta name="author" content="Trent Oswald <trentoswald@therebelrobot.com>">
+
+  <title>Fontonite - Open API to Convert Webfonts</title>
+
+  <link rel="shortcut icon" href="/img/fontonite-small.png" />
+
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="An open API to convert a font to the corresponding web fonts.">
+  <meta itemprop="description" content="An open API to convert a font to the corresponding web fonts.">
+  <meta itemprop="image" content="img/avatar-google.png">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@therebelrobot">
+  <meta name="twitter:title" content="Fontonite by therebelrobot">
+  <meta name="twitter:description" content="An open API to convert a font to the corresponding web fonts.">
+  <meta name="twitter:creator" content="@therebelrobot">
+  <meta name="twitter:image:src" content="img/avatar-twitter.png">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="Fontonite by therebelrobot">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="http://therebelrobot.github.io/fontonite">
+  <meta property="og:image" content="img/avatar-facebook.png">
+  <meta property="og:description" content="An open API to convert a font to the corresponding web fonts.">
+  <meta property="og:site_name" content="Fontonite by therebelrobot">
+  <meta property="fb:admins" content="582330320">
+
+  <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/freelancer.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"
+  type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+  rel="stylesheet" type="text/css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#page-top">Fontonite</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="hidden">
+            <a href="#page-top"></a>
+          </li>
+          <li class="page-scroll">
+            <a href="#why">Why</a>
+          </li>
+          <li class="page-scroll">
+            <a href="#api">API</a>
+          </li>
+          <li class="page-scroll">
+            <a href="#convert">Convert</a>
+          </li>
+          <li class="page-scroll">
+            <a href="#legal">Legal</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <img class="img-responsive" src="img/fontonite-large.png" width="200" alt="">
+          <div class="intro-text">
+            <span class="name">Fontonite</span>
+            <hr class="star-light">
+            <span class="skills">A public API to convert TTF and OTF fonts to Web Fonts.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Why Section -->
+  <section id="why">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2>Why</h2>
+          <hr class="star-primary">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-lg-offset-2">
+          <p>I've found working with designers and front-end developers that there
+            is a knowledge gap, specifically when it comes to web fonts. Designers
+            worry about them only so far as to pick a font and deliver it to the
+            developers, while the developers normally lack the tools and know-how
+            to convert whatever esoteric filetype the font originally came in to
+            the proper cross-browser formats.</p>
+          <p>CDNs (Google Web Fonts, TypeKit, etc.) have in part solved this issue
+            in providing a simple mix-in to cover all cases. But what if the design
+            calls for one not provided by a CDN? There are a number of OSS tools
+            to assist with this process, but finding and installing all these toold
+            can be an unnecessary hassle.</p>
+          <p>Fontonite aims to fill that gap.</p>
+        </div>
+        <div class="col-lg-4">
+          <p>Fontonite is an easy to use public API that aims to convert any font
+            into web-safe formats (ttf, svg, woff, and eot) It utilizes publicly
+            available OSS tools to convert the file to the needed formats and provides
+            a .zip file with not only those files, but a sample css file to include
+            in your stylesheet.</p>
+          <p>Other services may provide similar solutions, but from my experience,
+            they place unneeded and undesired license scraping, which makes it
+            difficult to work with a font when you actually have obtained legal
+            rights to use it on the web. By using this tool, you automatically
+            agree that you have legally obtained rights to copy/convert the font,
+            so I have removed any restriction along those lines.</p>
+          <p>Alternatively, if you would like to run the API internally, the server
+            is based on Node.js/io.js and is ISC licensed, so it is super simple
+            to install locally and use.
+          </p>
+        </div>
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <hr class="star-primary">
+          <p>Finally, I will be working to expand the versitility of this tool, to
+            allow for more types of input fonts, as well as adding additional features
+            like multi-font uploading, css customization, and glyph filtering.
+            If there is a feature you would like to see in Fontonite, feel free
+            to open a Github Issue, or, better yet, open a pull request!
+          </p>
+          <a href="#convert" class="btn btn-lg btn-outline">
+            <i class="fa fa-exchange"></i> Convert your font!
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- API Section -->
+  <section class="success" id="api">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2>API</h2>
+          <hr class="star-light">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-lg-offset-2">
+          <p>The Fontonite API is proudly published through <a href="http://mashape.com/">Mashape</a>,
+            the largest API hub in the world.</p>
+        </div>
+        <div class="col-lg-4">
+          <p>Mashape provides analytics and tracking for APIs, and is free to use,
+            both as an API publisher and user. Sign up for free and start using
+            Fontonite now.</p>
+        </div>
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <a href="#" class="btn btn-lg btn-outline">
+            <i class="fa fa-file-code-o"></i> &nbsp; Docs and API @ Mashape
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Convert Section -->
+  <section id="convert">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2>Convert Your Font</h2>
+          <hr class="star-primary">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <form name="sentMessage" id="contactForm" novalidate class="text-center">
+            <div class="row control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <span class="btn btn-success fileinput-button">
+                  <i class="glyphicon glyphicon-plus"></i>
+                  <span>Choose Font...</span>
+                <!-- The file input field used as target for the file upload widget -->
+                <input id="fileupload" type="file" name="files[]" multiple>
+                </span>
+                <br>
+                <br>
+                <!-- The global progress bar -->
+                <div id="progress" class="progress">
+                  <div class="progress-bar progress-bar-success"></div>
+                </div>
+                <div id="files" class="files"></div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Section -->
+  <section class="success" id="legal">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2>Legal</h2>
+          <hr class="star-light">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <p>Use of this tool constitutes acknowledgement that you (the uploader)
+            have legal right to use and convert the fonts being converted. Under
+            no circumstances can the server owner nor the server author be held
+            liable for the misuse of this service. All archives are deleted within
+            minutes of creation, no converted files are stored permanantly. Please
+            ensure you have followed all necessary legal procedures to ensure your
+            appropriate use of the font you upload.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="footer-above">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col col-md-4">
+            <h3>Github Issues</h3>
+            <a href="https://github.com/therebelrobot/fontonite/issues" class="btn btn-lg btn-outline">
+              <i class="fa fa-github-square"></i> &nbsp; Website Issues
+            </a>
+            <a href="https://github.com/therebelrobot/fontonite-server/issues" class="btn btn-lg
+            btn-outline ">
+              <i class="fa fa-github-square "></i> &nbsp; API Issues
+            </a>
+
+          </div>
+          <div class="footer-col col-md-4 ">
+            <h3></h3>
+            <p></p>
+            <hr class="star-dark ">
+          </div>
+          <div class="footer-col col-md-4 ">
+            <h3>About therebelrobot</h3>
+            <p>Trent Oswald
+              <br/>( <a href="http://twitter.com/therebelrobot ">@therebelrobot</a> ,
+              &nbsp;
+              <a href="https://github.com/therebelrobot ">/therebelrobot</a> )
+              <br/>is a connoisseur of french toast, a javascript robot, and a maker
+              of web things at <a href="http://mashape.com ">Mashape</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-below ">
+      <div class="container ">
+        <div class="row ">
+          <div class="col-lg-12 ">
+            ISC Licensed - Copyright &copy; 2015, Trent Oswald - theRebelRobot Development
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-top page-scroll visible-xs visble-sm ">
+    <a class="btn btn-primary " href="#page-top ">
+      <i class="fa fa-chevron-up "></i>
+    </a>
+  </div>
+
+
+  <!-- jQuery -->
+  <!-- <script src="js/jquery.js "></script> -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js "></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js "></script>
+  <script src="js/classie.js "></script>
+  <script src="js/cbpAnimatedHeader.js "></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js "></script>
+  <script src="js/contact_me.js "></script>
+
+  <script src="js/jquery.ui.widget.js"></script>
+  <script src="js/jquery.iframe-transport.js"></script>
+  <script src="js/jquery.fileupload.js"></script>
+  <script src="js/jquery.fileupload-process.js"></script>
+  <!-- <script src="js/jquery.fileupload-image.js"></script> -->
+  <script src="js/jquery.fileupload-audio.js"></script>
+  <script src="js/jquery.fileupload-video.js"></script>
+  <script src="js/jquery.fileupload-validate.js"></script>
+  <script>
+    /*jslint unparam: true, regexp: true */
+    /*global window, $ */
+    $(function()
+    {
+      'use strict';
+      // Change this to the location of your server-side upload handler:
+      var url = 'http://localhost:8081/convert',
+        uploadButton = $('<button/>')
+        .addClass('btn btn-primary')
+        .prop('disabled', true)
+        .text('Processing...')
+        .on('click', function()
+        {
+          var $this = $(this),
+            data = $this.data();
+          $this
+            .off('click')
+            .text('Abort')
+            .on('click', function()
+            {
+              $this.remove();
+              data.abort();
+            });
+          data.submit().always(function()
+          {
+            $this.remove();
+          });
+        });
+      $('#fileupload').fileupload(
+        {
+          url: url,
+          dataType: 'json',
+          autoUpload: false,
+          acceptFileTypes: /(\.|\/)(ttf|otf)$/i,
+          maxFileSize: 10000000 // 10 MB
+        }).on('fileuploadadd', function(e, data)
+        {
+          data.context = $('<div/>').appendTo('#files');
+          $.each(data.files, function(index, file)
+          {
+            var node = $('<p/>')
+              .append($('<span/>').text(file.name));
+            if (!index)
+            {
+              node
+                .append('<br>')
+                .append(uploadButton.clone(true).data(data));
+            }
+            node.appendTo(data.context);
+          });
+        }).on('fileuploadprocessalways', function(e, data)
+        {
+          var index = data.index,
+            file = data.files[index],
+            node = $(data.context.children()[index]);
+          if (file.preview)
+          {
+            node
+              .prepend('<br>')
+              .prepend(file.preview);
+          }
+          if (file.error)
+          {
+            node
+              .append('<br>')
+              .append($('<span class="text-danger"/>').text(file.error));
+          }
+          if (index + 1 === data.files.length)
+          {
+            data.context.find('button')
+              .text('Upload')
+              .prop('disabled', !!data.files.error);
+          }
+        }).on('fileuploadprogressall', function(e, data)
+        {
+          var progress = parseInt(data.loaded / data.total * 100, 10);
+          $('#progress .progress-bar').css(
+            'width',
+            progress + '%'
+          );
+        }).on('fileuploaddone', function(e, data)
+        {
+          $.each(data.result.files, function(index, file)
+          {
+            if (file.url)
+            {
+              var link = $('<a>')
+                .attr('target', '_blank')
+                .prop('href', file.url);
+              $(data.context.children()[index])
+                .wrap(link);
+            }
+            else if (file.error)
+            {
+              var error = $('<span class="text-danger"/>').text(
+                file.error);
+              $(data.context.children()[index])
+                .append('<br>')
+                .append(error);
+            }
+          });
+        }).on('fileuploadfail', function(e, data)
+        {
+          $.each(data.files, function(index)
+          {
+            var error = $('<span class="text-danger"/>').text(
+              'File upload failed.');
+            $(data.context.children()[index])
+              .append('<br>')
+              .append(error);
+          });
+        }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    });
+  </script>
+  <!-- Custom Theme JavaScript -->
+  <script src="js/freelancer.js "></script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "fontonite",
+  "version": "1.0.0",
+  "description": "A public API to convert TTF and OTF fonts to Web Fonts (front-end)",
+  "main": "index.html",
+  "scripts": {
+    "start": "./node_modules/http-server/bin/http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/therebelrobot/fontonite.git"
+  },
+  "keywords": [
+    "api",
+    "font",
+    "webfont",
+    "ttf",
+    "otf",
+    "woff",
+    "svg",
+    "eot"
+  ],
+  "author": "Trent Oswald <trentoswald@therebelrobot.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/therebelrobot/fontonite/issues"
+  },
+  "homepage": "https://github.com/therebelrobot/fontonite",
+  "devDependencies": {
+    "http-server": "^0.8.0"
+  }
+}
