@@ -1,4 +1,4 @@
-# [Fontonite](therebelrobot.github.io/fontonite)
+# [Fontonite](http://therebelrobot.github.io/fontonite)
 A public API to convert TTF and OTF fonts to Web Fonts
 
 ## Contributions
